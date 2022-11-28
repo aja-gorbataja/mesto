@@ -1,0 +1,261 @@
+@import url(/vendor/normalize.css);
+@import url(/vendor/fonts/fonts.css);
+
+.page {
+  background-color: #000;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.header {
+  margin: 0 auto;
+  max-width: 880px;
+  padding: 45px 19px 40px;
+  border-bottom: 1px solid #545454;
+ 
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+  padding-left: 27px;
+  padding-top: 28px;
+  padding-bottom: 31.6px;
+}
+}
+
+.header__logo {
+  background-image: url(/img/logo.png);
+  width: 142px;
+  height: 33px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 320px) {
+  .header__logo {
+    width: 104px;
+    height: 24px;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  padding-left: 19px;
+  padding-right: 19px;
+  max-width: 880px;
+}
+
+.profile {
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: 120px auto 150px;
+  column-gap: 30px;
+  align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  .profile {
+    grid-template-columns: none;
+    justify-items: center;
+    padding-bottom: 36px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .profile__info {
+    max-width: 244px;
+    width: 100%;
+  }
+}
+
+.profile__avatar {
+  background-image: url(/img/redhat.jpg);
+  background-size: cover;
+  border-radius: 50%;
+  max-width: 120px;
+  width: 100%;
+  height: 120px;
+}
+
+.profile__container {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+@media screen and (max-width: 700px) {
+  .profile__container {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+
+.profile__info-name {
+  margin: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1.14;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-bottom: 14px;
+}
+
+@media screen and (max-width: 700px) {
+  .profile__info-name {
+    font-size: 27px;
+    line-height: 1.22;
+    padding-bottom: 9px;
+    padding-top: 26px;
+  }
+}
+
+.profile__info-description {
+  margin: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+}
+
+@media screen and (max-width: 700px) {
+  .profile__info-description {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    padding-bottom: 32px;
+  }
+}
+
+.profile__info-edit {
+  background-image: url(/img/editbutton.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  max-width: 24px;
+  width: 100%;
+  height: 24px;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+}
+
+@media screen and (max-width: 700px) {
+  .profile__info-edit {
+    max-width: 18px;
+    height: 18px;
+    border-width: 1px;
+  }
+}
+
+.profile__add {
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  background: url(/img/addbutton.svg) no-repeat transparent center;
+  max-width: 150px;
+  width: 100%;
+  height: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  .profile__add {
+    margin: 0 auto;
+    max-width: 282px;
+    background-image: url(/img/addbutton320.svg);
+  }
+}
+
+.elements {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  column-gap: 17px;
+  row-gap: 20px;
+}
+
+@media screen and (max-width: 918px) {
+  .elements {
+    justify-content: center;
+  }
+}
+
+
+.elements__item {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.elements__item-img {
+  width: 100%;
+  object-fit: contain;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: block;
+}
+
+.elements__item-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding-left: 21px;
+  padding-right: 20px;
+}
+
+.element__item-name {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.21;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.element__item-like {
+  background: url(/img/like.svg) transparent center;
+  max-width: 22px;
+  height: 19px;
+  width: 100%;
+  align-self: center;
+} 
+
+.footer {
+  margin: 0 auto;
+  max-width: 880px;
+  padding: 66px 19px 60px;
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    padding-bottom: 36px;
+    padding-top: 48px;
+  }
+}
+
+.footer__copyright {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #545454;
+}
+
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    font-size: 14px;
+  }
+}
