@@ -8,6 +8,7 @@
   height: 24px;
   box-sizing: border-box;
   border: 1px solid #fff;
+  display: inline-flex;
 }
 
 .profile__info-edit:hover {
