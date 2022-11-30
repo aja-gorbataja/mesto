@@ -1,0 +1,8 @@
+.profile__avatar {
+  background-image: url(../../../images/redhat.jpg);
+  background-size: cover;
+  border-radius: 50%;
+  max-width: 120px;
+  width: 100%;
+  height: 120px;
+}

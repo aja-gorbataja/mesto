@@ -1,0 +1,14 @@
+.header__logo_theme_dark {
+  background-image: url(../../../images/logo.svg);
+  width: 142px;
+  height: 33px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 320px) {
+  .header__logo_theme_dark {
+    width: 104px;
+    height: 24px;
+  }
+}

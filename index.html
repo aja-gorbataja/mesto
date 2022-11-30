@@ -2,14 +2,14 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="./styles/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
 </head>
 <body>
   <div class="page">
       <header class="header">
-        <div class="header__logo"></div>
+        <div class="header__logo_theme_dark header__logo_theme_light"></div>
       </header>
       <main class="content">
         <section class="profile">
@@ -25,51 +25,64 @@
         </section>
         <section class="elements">
           <div class="elements__item">
-            <img src="./img/lipeck.jpeg" alt="поле в липецкой области" class="elements__item-img">
+            <img src="./images/lipeck.jpeg" alt="поле в липецкой области" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="element__item-name">Липецк</h2>
-              <div class="element__item-like"></div>
+              <div class="element__item-like element__item-like_active"></div>
             </div>
           </div>
           <div class="elements__item">
-            <img src="./img/shuya.jpeg" alt="страусиная ферма в г. Шуя" class="elements__item-img">
+            <img src="./images/shuya.jpeg" alt="страусиная ферма в г. Шуя" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="element__item-name">Шуя</h2>
-              <div class="element__item-like"></div>
+              <div class="element__item-like element__item-like_active"></div>
             </div>
           </div>
           <div class="elements__item">
-            <img src="./img/msk.jpeg" alt="Москва-Сити" class="elements__item-img">
+            <img src="./images/msk.jpeg" alt="Москва-Сити" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="element__item-name">Москва</h2>
-              <div class="element__item-like"></div>
+              <div class="element__item-like element__item-like_active"></div>
             </div>
           </div>
           <div class="elements__item">
-            <img src="./img/ples.jpeg" alt="пирс в г. Плес" class="elements__item-img">
+            <img src="./images/ples.jpeg" alt="пирс в г. Плес" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="element__item-name">Плёс</h2>
-              <div class="element__item-like"></div>
+              <div class="element__item-like element__item-like_active"></div>
             </div>
           </div>
           <div class="elements__item">
-            <img src="./img/piter.jpeg" alt="двор-колодец" class="elements__item-img">
+            <img src="./images/piter.jpeg" alt="двор-колодец" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="element__item-name">Санкт-Петербург</h2>
-              <div class="element__item-like"></div>
+              <div class="element__item-like element__item-like_active"></div>
             </div>
           </div>
           <div class="elements__item">
-            <img src="./img/ivanovo.jpeg" alt="отражение осеннего леса в реке" class="elements__item-img">
+            <img src="./images/ivanovo.jpeg" alt="отражение осеннего леса в реке" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="element__item-name">Иваново</h2>
-              <div class="element__item-like"></div>
+              <div class="element__item-like element__item-like_active"></div>
             </div>
           </div>
         </section>
       </main>
-      <div class="footer">
+      <footer class="footer">
         <p class="footer__copyright">© 2022 Mesto Russia</p>
+      </footer>
+      <div class="popup">
+        <div class="popup__container">
+          <button class="popup__close"></button>
+          <form action="#" class="form">
+            <h3 class="form__title">Редактировать профиль</h3>
+            <fieldset class="form__input">
+              <input type="text" class="form__input-name">
+              <input type="text" class="form__input-description">
+            </fieldset>
+            <button class="form__save">Сохранить</button>
+          </form>
+        </div>
       </div>
   </div>
 </body>

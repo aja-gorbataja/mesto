@@ -1,0 +1,16 @@
+/*
+.header__logo_theme_light {
+  background-image: url(../../../images/logolight.svg);
+  width: 142px;
+  height: 33px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 320px) {
+  .header__logo_theme_light {
+    width: 104px;
+    height: 24px;
+  }
+}
+*/
