@@ -1,4 +1,4 @@
-.element__item-like {
+.elements__item-like {
   background: url(../../../images/like.svg) transparent center;
   max-width: 22px;
   height: 19px;
@@ -6,7 +6,7 @@
   align-self: center;
 } 
 
-.element__item-like:hover {
+.elements__item-like:hover {
   opacity: 0.6;
   cursor: pointer;
   transition: 0.2s;

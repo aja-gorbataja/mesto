@@ -1,5 +1,5 @@
 /*
-.element__item-like_active {
+.elements__item-like_active {
   background: url(../../../images/likeact.svg) transparent center;
   max-width: 22px;
   height: 19px;
@@ -7,7 +7,7 @@
   align-self: center;
 }
 
-.element__item-like_active:hover {
+.elements__item-like_active:hover {
   opacity: 0.6;
   cursor: pointer;
   transition: 0.2s;
