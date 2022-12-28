@@ -24,57 +24,73 @@
           <button class="profile__add"></button>
         </section>
         <section class="elements">
-          <div class="elements__item">
+          <template class="item">
+            <div class="elements__item">
+              <div class="elements__item-trash"></div>
+              <img src="" alt="" class="elements__item-img">
+              <div class="elements__item-container">
+                <h2 class="elements__item-name"></h2>
+                <div class="elements__item-like"></div>
+              </div>
+            </div>
+          </template>
+          <!-- <div class="elements__item">
+            <button class="elements__item-trash"></button>
             <img src="./images/lipeck.jpeg" alt="поле в липецкой области" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="elements__item-name">Липецк</h2>
-              <div class="elements__item-like elements__item-like_on elements__item-like_off"></div>
+              <div class="elements__item-like"></div>
             </div>
           </div>
           <div class="elements__item">
+            <button class="elements__item-trash"></button>
             <img src="./images/shuya.jpeg" alt="страусиная ферма в г. Шуя" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="elements__item-name">Шуя</h2>
-              <div class="elements__item-like elements__item-like_on elements__item-like_off"></div>
+              <div class="elements__item-like"></div>
             </div>
           </div>
           <div class="elements__item">
+            <button class="elements__item-trash"></button>
             <img src="./images/msk.jpeg" alt="Москва-Сити" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="elements__item-name">Москва</h2>
-              <div class="elements__item-like elements__item-like_on elements__item-like_off"></div>
+              <div class="elements__item-like"></div>
             </div>
           </div>
           <div class="elements__item">
+            <button class="elements__item-trash"></button>
             <img src="./images/ples.jpeg" alt="пирс в г. Плес" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="elements__item-name">Плёс</h2>
-              <div class="elements__item-like elements__item-like_on elements__item-like_off"></div>
+              <div class="elements__item-like"></div>
             </div>
           </div>
           <div class="elements__item">
+            <button class="elements__item-trash"></button>
             <img src="./images/piter.jpeg" alt="двор-колодец" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="elements__item-name">Санкт-Петербург</h2>
-              <div class="elements__item-like elements__item-like_on elements__item-like_off"></div>
+              <div class="elements__item-like"></div>
             </div>
           </div>
           <div class="elements__item">
+            <button class="elements__item-trash"></button>
             <img src="./images/ivanovo.jpeg" alt="отражение осеннего леса в реке" class="elements__item-img">
             <div class="elements__item-container">
               <h2 class="elements__item-name">Иваново</h2>
-              <div class="elements__item-like elements__item-like_on elements__item-like_off"></div>
+              <div class="elements__item-like"></div>
             </div>
-          </div>
+          </div> -->
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2022 Mesto Russia</p>
       </footer>
-      <div class="popup">
+      <div class="popup popup__edit">
         <div class="popup__container">
-          <button class="popup__close"></button>
-          <form action="#" class="form">
+          <button class="popup__edit-close"></button>
+          <form action="#" class="form form__edit">
             <h3 class="form__title">Редактировать профиль</h3>
             <fieldset class="form__input">
               <input type="text" class="form__input-name">
@@ -82,6 +98,28 @@
             </fieldset>
             <button class="form__save">Сохранить</button>
           </form>
+        </div>
+      </div>
+      <div class="popup popup__add">
+        <div class="popup__container">
+          <button class="popup__add-close"></button>
+          <form action="#" class="form form__add">
+            <h3 class="form__title">Новое место</h3>
+            <fieldset class="form__input">
+              <input type="text" class="form__input-city" placeholder="Название">
+              <input type="text" class="form__input-link" placeholder="Ссылка на картинку">
+            </fieldset>
+            <button class="form__save">Создать</button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup__img">
+        <div class="popup__img-container">
+          <button class="popup__img-close"></button>
+          <figure class="img">
+            <img class="img__full" alt="" src="">
+            <figcaption class="img__title"></figcaption>
+          </figure>
         </div>
       </div>
   </div>
