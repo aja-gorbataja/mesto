@@ -1,23 +1,23 @@
 
-const popupEdit = document.querySelector('.popup__edit');
+const popupEdit = document.querySelector('.popup_edit');
 const inputName = document.querySelector('.form__input-name');
 const profileName = document.querySelector('.profile__info-name');
 const inputDescription = document.querySelector('.form__input-description');
 const profileDescription = document.querySelector('.profile__info-description');
 const buttonEdit = document.querySelector('.profile__info-edit');
-const buttonEditClose = document.querySelector('.popup__edit-close');
-const formEdit = document.querySelector('.form__edit');
+const buttonEditClose = document.querySelector('.popup_edit_close');
+const formEdit = document.querySelector('.form_edit');
 const buttonAdd = document.querySelector('.profile__add');
-const buttonAddClose = document.querySelector('.popup__add-close');
-const popupAdd = document.querySelector('.popup__add');
+const buttonAddClose = document.querySelector('.popup_add_close');
+const popupAdd = document.querySelector('.popup_add');
 const inputCity = document.querySelector('.form__input-city');
 const inputLink = document.querySelector('.form__input-link');
-const formAdd = document.querySelector('.form__add');
+const formAdd = document.querySelector('.form_add');
 const itemTemplate = document.querySelector('.item').content;
-const popupImg = document.querySelector('.popup__img');
+const popupImg = document.querySelector('.popup_img');
 const imgFull = document.querySelector('.img__full');
 const imgTitle = document.querySelector('.img__title');
-const buttonImgClose = document.querySelector('.popup__img-close');
+const buttonImgClose = document.querySelector('.popup_img_close');
 
 const elementsArray = [
   {
