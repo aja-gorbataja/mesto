@@ -5,7 +5,7 @@ const profileName = document.querySelector('.profile__info-name');
 const inputDescription = document.querySelector('.form__input-description');
 const profileDescription = document.querySelector('.profile__info-description');
 const buttonEdit = document.querySelector('.profile__info-edit');
-const buttonEditClose = document.querySelector('.popup_edit_close');
+const buttonEditClose = document.querySelector('.popup__edit-close');
 const formEdit = document.querySelector('.form_edit');
 const buttonAdd = document.querySelector('.profile__add');
 const buttonAddClose = document.querySelector('.popup__add-close');
@@ -17,7 +17,7 @@ const itemTemplate = document.querySelector('.item').content;
 const popupImg = document.querySelector('.popup_img');
 const imgFull = document.querySelector('.img__full');
 const imgTitle = document.querySelector('.img__title');
-const buttonImgClose = document.querySelector('.popup_img_close');
+const buttonImgClose = document.querySelector('.popup__img-close');
 
 const elementsArray = [
   {
