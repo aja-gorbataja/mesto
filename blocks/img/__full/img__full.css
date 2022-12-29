@@ -1,4 +1,5 @@
 .img__full {
+  background-color: black;
   display: block;
   max-height: 75vh;
   max-width: 75vw;
