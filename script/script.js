@@ -21,14 +21,27 @@ const imgTitle = document.querySelector('.img__title');
 const buttonImgClose = document.querySelector('.popup__img-close');
 const newItemContainer = document.querySelector('.elements');
 const popupList = Array.from(document.querySelectorAll('.popup'));
-
+const editInput = Array.from(formEdit.querySelectorAll('.popup__input'));
+const buttonEditAble = formEdit.querySelector('.popup__button');
+const addInput = Array.from(formAdd.querySelectorAll('.popup__input'));
+const buttonAddAble = formAdd.querySelector('.popup__button');
 
 function openPopup (popup) {
   popup.classList.add('popup_open');
+  document.addEventListener('keydown', closeByEsc);
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_open');
+  document.removeEventListener('keydown', closeByEsc);
+}
+
+function closeByEsc (evt) {
+  if (evt.key === 'Escape') {
+    popupList.forEach((popup) => {
+      closePopup(popup);
+    });
+  }
 }
 
 function editFormSubmit (evt) {
@@ -55,7 +68,7 @@ function createItem (name, link) {
   newItemLink.src = link;
   newItemLink.alt = name;
 
-  newItem.querySelector('.elements__item-img').addEventListener('click', function () {
+  newItemLink.addEventListener('click', function () {
     openPopup(popupImg);
     imgFull.src = newItemLink.src;
     imgTitle.textContent = newItemName.textContent;
@@ -77,8 +90,8 @@ function addNewItem (name, link) {
   newItemContainer.prepend(createItem(name, link));
 }
 
-
 buttonEditOpen.addEventListener('click', function () {
+  toggleButtonState(editInput, buttonEditAble, validationConfig);
   openPopup(popupEdit);
   inputName.value = profileName.textContent;
   inputDescription.value = profileDescription.textContent;
@@ -91,8 +104,10 @@ buttonEditClose.addEventListener('click', function () {
 formEdit.addEventListener('submit', editFormSubmit);
 
 buttonAddOpen.addEventListener('click', function (){
+  toggleButtonState(addInput, buttonAddAble, validationConfig);
   openPopup(popupAdd);
 });
+
 buttonAddClose.addEventListener('click', function () {
   closePopup(popupAdd);
 });
@@ -107,27 +122,21 @@ elementsArray.forEach(element => {
   addNewItem(element.name, element.link);
 });
 
-enableValidation({
+const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error_visible'
-}); 
+}
+
+enableValidation(validationConfig); 
 
 
 popupList.forEach((popup) => {
   popup.addEventListener ('click', function (evt) {
     if (evt.currentTarget === evt.target) {
-      closePopup(popup);
-    }
-  })
-});
-
-popupList.forEach((popup) => {
-  document.addEventListener ('keydown', function (evt) {
-    if (evt.key === 'Escape') {
       closePopup(popup);
     }
   })
