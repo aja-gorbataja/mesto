@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./styles/index.css">
+  <script src="./script/validate.js" defer></script>
   <script src="./script/data.js" defer></script>
   <script src="./script/script.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,26 +45,31 @@
       <div class="popup popup_edit">
         <div class="popup__container">
           <button class="popup__edit-close" aria-label="edit-close"></button>
-          <form action="#" class="form form_edit">
+          <form action="#" class="form form_edit popup__form" novalidate>
             <h3 class="form__title">Редактировать профиль</h3>
             <fieldset class="form__input">
-              <input type="text" class="form__input-name" placeholder="Имя" required>
-              <input type="text" class="form__input-description" placeholder="О себе" required>
+              <input id="username" type="text" class="form__input-name popup__input" placeholder="Имя" minlength="2" maxlength="40" required>
+              <span class="username-error popup__input-error"></span>
+              <input id="description" type="text" class="form__input-description popup__input" placeholder="О себе" 
+              minlength="2" maxlength="200" required>
+              <span class="description-error popup__input-error"></span>
             </fieldset>
-            <button class="form__save">Сохранить</button>
+            <button class="form__save popup__button" disabled>Сохранить</button>
           </form>
         </div>
       </div>
       <div class="popup popup_add">
         <div class="popup__container">
           <button class="popup__add-close" aria-label="add-close"></button>
-          <form action="#" class="form form_add">
+          <form action="#" class="form form_add popup__form" novalidate>
             <h3 class="form__title">Новое место</h3>
             <fieldset class="form__input">
-              <input type="text" class="form__input-city" placeholder="Название" required>
-              <input type="url" class="form__input-link" placeholder="Ссылка на картинку" required>
+              <input id="cityname" type="text" class="form__input-city popup__input" placeholder="Название" minlength="2" maxlength="30" required>
+              <span class="cityname-error popup__input-error"></span>
+              <input id="imagelink" type="url" class="form__input-link popup__input" placeholder="Ссылка на картинку" required>
+              <span class="imagelink-error popup__input-error"></span>
             </fieldset>
-            <button class="form__save">Создать</button>
+            <button class="form__save popup__button">Создать</button>
           </form>
         </div>
       </div>

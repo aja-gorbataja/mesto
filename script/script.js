@@ -20,6 +20,8 @@ const imgFull = document.querySelector('.img__full');
 const imgTitle = document.querySelector('.img__title');
 const buttonImgClose = document.querySelector('.popup__img-close');
 const newItemContainer = document.querySelector('.elements');
+const popupList = Array.from(document.querySelectorAll('.popup'));
+
 
 function openPopup (popup) {
   popup.classList.add('popup_open');
@@ -38,7 +40,7 @@ function editFormSubmit (evt) {
 
 function addFormSubmit (evt) {
   evt.preventDefault();
-  createItem(inputCity.value, inputLink.value);
+  addNewItem(inputCity.value, inputLink.value);
   inputCity.value = '';
   inputLink.value = '';
   closePopup(popupAdd);
@@ -103,4 +105,30 @@ buttonImgClose.addEventListener('click', function () {
 
 elementsArray.forEach(element => {
   addNewItem(element.name, element.link);
+});
+
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_visible'
+}); 
+
+
+popupList.forEach((popup) => {
+  popup.addEventListener ('click', function (evt) {
+    if (evt.currentTarget === evt.target) {
+      closePopup(popup);
+    }
+  })
+});
+
+popupList.forEach((popup) => {
+  document.addEventListener ('keydown', function (evt) {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  })
 });
