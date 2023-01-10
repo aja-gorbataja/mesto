@@ -38,9 +38,8 @@ function closePopup (popup) {
 
 function closeByEsc (evt) {
   if (evt.key === 'Escape') {
-    popupList.forEach((popup) => {
-      closePopup(popup);
-    });
+  const popupActive = document.querySelector('.popup_open');
+  closePopup(popupActive);
   }
 }
 
