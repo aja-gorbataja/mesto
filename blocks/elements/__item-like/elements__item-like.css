@@ -1,5 +1,7 @@
 .elements__item-like {
-  background: url(../../../../images/like.svg) transparent center;
+  background-image: url(../../../images/like.svg);
+  background-color: transparent;
+  background-position: center;
   max-width: 22px;
   height: 19px;
   width: 100%;

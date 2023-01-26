@@ -18,13 +18,22 @@ const inputCity = document.querySelector('.form__input-city');
 const inputLink = document.querySelector('.form__input-link');
 const formAdd = document.querySelector('.form_add');
 const popupList = Array.from(document.querySelectorAll('.popup'));
+const popupImg = document.querySelector('.popup_img');
+const imgFull = document.querySelector('.img__full');
+const buttonImgClose = document.querySelector('.popup__img-close');
+
 
 elementsArray.forEach((element) => {
-  const card = new Card(element, '.item');
-  const cardElement = card.generateCard();
+  addNewCard(element.name, element.link);
+})
 
-  cardList.prepend(cardElement);
-});
+function addNewCard(name, link) {
+  const card = new Card({name, link}, '.item', handleOpenPopup);
+  const newCard = card.generateCard();
+
+  cardList.prepend(newCard);
+}
+
 
 function openPopup (popup) {
   popup.classList.add('popup_open');
@@ -57,18 +66,10 @@ function editFormSubmit (evt) {
   profileDescription.textContent = inputDescription.value;
   closePopup(popupEdit)
 }
-function addNewCard(name, link) {
-  const card = new Card({name, link}, '.item');
-  const newCard = card.generateCard();
-
-  cardList.prepend(newCard);
-}
 
 function addFormSubmit (evt) {
   evt.preventDefault();
   addNewCard(inputCity.value, inputLink.value);
-  inputCity.value = '';
-  inputLink.value = '';
   closePopup(popupAdd);
 }
 
@@ -76,6 +77,7 @@ buttonEditOpen.addEventListener('click', function () {
   openPopup(popupEdit);
   inputName.value = profileName.textContent;
   inputDescription.value = profileDescription.textContent;
+  formEditValidation.disabledButton();
 });
 
 buttonEditClose.addEventListener('click', function () {
@@ -86,10 +88,17 @@ formEdit.addEventListener('submit', editFormSubmit);
 
 buttonAddOpen.addEventListener('click', function (){
   openPopup(popupAdd);
+  inputCity.value = '';
+  inputLink.value = '';
+  formAddValidation.disabledButton();
 });
 
 buttonAddClose.addEventListener('click', function () {
   closePopup(popupAdd);
+});
+
+buttonImgClose.addEventListener('click', function () {
+  closePopup(popupImg);
 });
 
 formAdd.addEventListener('submit', addFormSubmit);
@@ -107,6 +116,13 @@ popupList.forEach((popup) => {
     }
   })
 });
+
+function handleOpenPopup (name, link) {
+  openPopup(popupImg);
+  imgFull.textContent = name;
+  imgFull.alt = name;
+  imgFull.src = link;
+}
 
 /* const popupEdit = document.querySelector('.popup_edit');
 const inputName = document.querySelector('.form__input-name');

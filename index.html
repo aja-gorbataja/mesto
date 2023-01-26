@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./styles/index.css">
-  <script type="module" src="./script/Card.js" defer></script>
-  <script type="module" src="./script/FormValidation.js" defer></script>
-  <script type="module" src="./script/data.js" defer></script>
   <script type="module" src="./script/script.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
@@ -28,16 +25,6 @@
           <button class="profile__add" aria-label="add"></button>
         </section>
         <section class="elements">
-          <template class="item">
-            <div class="elements__item">
-              <div class="elements__item-trash"></div>
-              <img src="#" alt="" class="elements__item-img">
-              <div class="elements__item-container">
-                <h2 class="elements__item-name"></h2>
-                <div class="elements__item-like"></div>
-              </div>
-            </div>
-          </template>
         </section>
       </main>
       <footer class="footer">
@@ -84,5 +71,15 @@
         </div>
       </div>
   </div>
+  <template class="item">
+    <div class="elements__item">
+      <div class="elements__item-trash"></div>
+      <img src="#" alt="" class="elements__item-img">
+      <div class="elements__item-container">
+        <h2 class="elements__item-name"></h2>
+        <div class="elements__item-like"></div>
+      </div>
+    </div>
+  </template>
 </body>
 </html>

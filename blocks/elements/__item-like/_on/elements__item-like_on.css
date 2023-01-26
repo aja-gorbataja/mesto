@@ -1,3 +1,5 @@
 .elements__item-like_on {
-  background: url(../../../../images/likeact.svg) transparent center;
+  background-image: url(../../../../images/likeact.svg);
+  background-color: transparent;
+  background-position: center;
 }

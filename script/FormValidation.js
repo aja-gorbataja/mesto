@@ -54,11 +54,20 @@ export class FormValidation {
   });
   }
 
+  _deleteError() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement)
+    })
+  }
+
+  disabledButton() {
+    this._buttonElement.classList.add(this._config.inactiveButtonClass);
+    this._buttonElement.disabled = true;
+    this._deleteError();
+  }
+
   enableValidation() {
-    const formList = Array.from(document.querySelectorAll(this._config.formSelector));
-    formList.forEach((formElement) => {
-      this._setEventListeners(formElement);
-    });
+      this._setEventListeners();
   }
 }
 
