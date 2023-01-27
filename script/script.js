@@ -86,11 +86,11 @@ buttonEditClose.addEventListener('click', function () {
 
 formEdit.addEventListener('submit', editFormSubmit);
 
-buttonAddOpen.addEventListener('click', function (){
-  openPopup(popupAdd);
+buttonAddOpen.addEventListener('click', function () {
   inputCity.value = '';
   inputLink.value = '';
   formAddValidation.disabledButton();
+  openPopup(popupAdd);
 });
 
 buttonAddClose.addEventListener('click', function () {
@@ -118,10 +118,10 @@ popupList.forEach((popup) => {
 });
 
 function handleOpenPopup (name, link) {
-  openPopup(popupImg);
   imgFull.textContent = name;
   imgFull.alt = name;
   imgFull.src = link;
+  openPopup(popupImg);
 }
 
 /* const popupEdit = document.querySelector('.popup_edit');
