@@ -2,7 +2,7 @@
 export class Popup {
   constructor(popupSelector) {
     this._popupSelector = document.querySelector(popupSelector);
-    this._closeButton = this._popupSelector.querySelector('#button-close');
+    this._closeButton = this._popupSelector.querySelector('.popup-close');
   }
 
   openPopup() {
