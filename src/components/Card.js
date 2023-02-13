@@ -19,17 +19,21 @@ export class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._setEventListeners();
-  
-    this._element.querySelector('.elements__item-img').src = this._link;
-    this._element.querySelector('.elements__item-img').alt = this._name;
-    this._element.querySelector('.elements__item-name').textContent = this._name;
+    this._cardImage = this._element.querySelector('.elements__item-img');
+    this._cardTitle = this._element.querySelector('.elements__item-name');
+    this._cardLike = this._element.querySelector('.elements__item-like');
+    this._cardRemove = this._element.querySelector('.elements__item-trash');
 
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
+
+    this._setEventListeners();
     return this._element;
   }
 
   _handleLike() {
-    this._element.querySelector('.elements__item-like').classList.toggle('elements__item-like_on');
+    this._cardLike.classList.toggle('elements__item-like_on');
   }
 
   _handleTrash() {
@@ -37,15 +41,15 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector('.elements__item-img').addEventListener('click', () => {
+    this._cardImage.addEventListener('click', () => {
       this._handleOpenPopup(this._name, this._link);
     });
 
-    this._element.querySelector('.elements__item-like').addEventListener('click', () => {
+    this._cardLike.addEventListener('click', () => {
       this._handleLike();
     });
 
-    this._element.querySelector('.elements__item-trash').addEventListener('click', () => {
+    this._cardRemove.addEventListener('click', () => {
       this._handleTrash();
     });
   }
