@@ -12,13 +12,16 @@
       </header>
       <main class="content">
         <section class="profile">
-          <div class="profile__avatar"></div>
+          <div class="profile__edit">
+            <img src="#" alt="Аватар" class="profile__avatar">
+            <div class="profile__button"></div>
+          </div>
           <div class="profile__info">
             <div class="profile__container">
-              <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+              <h1 class="profile__info-name"></h1>
               <button class="profile__info-edit" aria-label="edit"></button>
             </div>
-            <p class="profile__info-description">Исследователь океана</p>
+            <p class="profile__info-description"></p>
           </div>
           <button class="profile__add" aria-label="add"></button>
         </section>
@@ -36,7 +39,7 @@
             <fieldset class="form__input">
               <input id="username" type="text" name="name" class="form__input-name popup__input" placeholder="Имя" minlength="2" maxlength="40" required>
               <span class="username-error popup__input-error"></span>
-              <input id="description" name="info" type="text" class="form__input-description popup__input" placeholder="О себе" 
+              <input id="description" name="about" type="text" class="form__input-description popup__input" placeholder="О себе" 
               minlength="2" maxlength="200" required>
               <span class="description-error popup__input-error"></span>
             </fieldset>
@@ -68,6 +71,26 @@
           </figure>
         </div>
       </div>
+      <div class="popup popup_ask">
+        <div class="popup__ask-container">
+          <button class="popup__ask-close popup-close" aria-label="ask-close"></button>
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button type="submit" class="popup__button">Да</button>
+        </div>
+      </div>
+      <div class="popup popup_avatar">
+        <div class="popup__container">
+          <button class="popup__avatar-close popup-close" aria-label="avatar-close"></button>
+          <form name="form-avatar" action="#" class="form form_avatar popup__form" novalidate>
+            <h3 class="form__title">Обновить аватар</h3>
+            <fieldset class="form__input">
+              <input id="avatarlink" name="avatar" type="url" class="form__input-avatar popup__input" placeholder="Ссылка на картинку" required>
+              <span class="avatarlink-error popup__input-error"></span>
+            </fieldset>
+            <button type="submit" class="form__save popup__button" disabled>Сохранить</button>
+          </form>
+        </div>
+      </div>
   </div>
   <template class="item">
     <div class="elements__item">
@@ -75,7 +98,9 @@
       <img src="#" alt="" class="elements__item-img">
       <div class="elements__item-container">
         <h2 class="elements__item-name"></h2>
-        <div class="elements__item-like"></div>
+        <div class="elements__item-like">
+          <p class="elements__item-numbers"></p>
+        </div>
       </div>
     </div>
   </template>

@@ -6,6 +6,7 @@
   max-width: 24px;
   width: 100%;
   height: 24px;
+  aspect-ratio: 1/1;
   box-sizing: border-box;
   border: 1px solid #fff;
   display: inline-flex;

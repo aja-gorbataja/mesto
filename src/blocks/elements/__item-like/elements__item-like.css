@@ -6,6 +6,9 @@
   height: 19px;
   width: 100%;
   align-self: center;
+  margin-bottom: 16px;
+  /*display: flex;
+  flex-direction: column;*/
 } 
 
 .elements__item-like:hover {
