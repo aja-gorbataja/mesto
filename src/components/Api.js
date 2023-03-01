@@ -1,9 +1,3 @@
-const handleResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(new Error('Произошла ошибка'))
-}
 
 export default class Api {
   constructor(config) {
@@ -11,12 +5,19 @@ export default class Api {
     this.headers = config.headers;
   }
 
+  _handleResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(new Error('Произошла ошибка'))
+  }
+
   getCards() {
     return fetch(`${this.url}/cards`, {
       method: 'GET',
       headers: this.headers
     })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
 
   createCard(data) {
@@ -28,7 +29,7 @@ export default class Api {
         link: data.link
       })
     })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
 
   getOwnerInfo() {
@@ -36,10 +37,10 @@ export default class Api {
       method: 'GET',
       headers: this.headers
     })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
 
-  editProfile() {
+  editProfile(data) {
     return fetch(`${this.url}/users/me`, {
       method: 'PATCH',
       headers: this.headers,
@@ -48,7 +49,7 @@ export default class Api {
         about: data.about
       })
     })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
   
   editAvatar(data) {
@@ -59,7 +60,7 @@ export default class Api {
           avatar: data.avatar, 
       })
   })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
 
   deleteCard(_id) {
@@ -67,7 +68,7 @@ export default class Api {
       method: 'DELETE',
       headers: this.headers
     })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
 
   addLike(_id) {
@@ -75,7 +76,7 @@ export default class Api {
       method: 'PUT',
       headers: this.headers
     })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
 
   deleteLike(_id) {
@@ -83,6 +84,6 @@ export default class Api {
       method: 'DELETE',
       headers: this.headers
     })
-    .then(handleResponse)
+    .then(res => this._handleResponse(res))
   }
 }

@@ -1,6 +1,6 @@
 
 import './index.css';
-import { validationConfig } from '../utils/data.js';
+import { buttonEditOpen, buttonAddOpen, inputName, inputAbout, inputAvatar, userName, userAbout, userAvatar, cardsContainer, config, validationConfig } from '../utils/data.js';
 import Card from '../components/Card.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import Section  from '../components/Section.js';
@@ -10,41 +10,10 @@ import UserInfo  from '../components/UserInfo.js';
 import Api from '../components/Api.js';
 import PopupWithConfirm from '../components/PopupWithConfirm.js';
 
-const buttonEditOpen = document.querySelector('.profile__info-edit');
-const buttonAddOpen = document.querySelector('.profile__add');
-const inputName = document.querySelector('.form__input-name');
-const inputAbout = document.querySelector('.form__input-description');
-const inputAvatar = document.querySelector('.form__input-avatar');
-const userName = document.querySelector('.profile__info-name');
-const userAbout = document.querySelector('.profile__info-description');
-const userAvatar = document.querySelector('.profile__avatar');
-
 let userId;
-
-
-const config = {
-  url: 'https://mesto.nomoreparties.co/v1/cohort-60',
-  headers: {
-    authorization: 'a7d13795-b751-49db-aed9-35354fa7b32f',
-    'Content-Type': 'application/json'
-  }
-}
 
 const api = new Api(config);
 
-api.getCards()
-  .then((data) => {
-    const cardList = new Section({
-      data: data,
-      renderer: (item) => {
-        const newCard = createCard(item);
-        cardList.addItem(newCard);
-      }
-    }, '.elements');
-
-    cardList.renderItem(data)
-  })
- 
   api.getOwnerInfo()
     .then((data) => {
       userEdit.setUserInfo(data);
@@ -53,19 +22,30 @@ api.getCards()
 
       userId = data._id;
     })
+    .then(() => {
+      api.getCards()
+        .then((data) => {
+          cardList.renderItem(data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 
 const userEdit = new UserInfo({name: userName, about: userAbout, avatar: userAvatar});
 
 const cardList = new Section({
-  data: [],
   renderer: (item) => {
     const newCard = createCard(item);
     cardList.addItem(newCard);
   }
-}, '.elements');
+}, cardsContainer);
 
 function createCard(item) {
-  const card = new Card(item, '.item', handleOpenPopup, deleteCard, likeCard, userId);
+  const card = new Card(item, '.item', handleOpenPopup, handleDeleteClick, likeCard, userId);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -84,6 +64,10 @@ const popupAdd = new PopupWithForm('.popup_add', {
       })
       .catch((err) => {
         console.log(err)
+      })
+      .finally(() => {
+        popupAdd.setLoadingText('Создать');
+        popupAdd.closePopup();
       })
   }
 });
@@ -135,10 +119,14 @@ const popupConfirm = new PopupWithConfirm('.popup_ask', {
       .catch((err) => {
         console.log(err)
       })
+      .finally(() => {
+        popupConfirm.setLoadingText('Да');
+        popupConfirm.closePopup()
+      })
   }
 })
   
-function deleteCard(card) {
+function handleDeleteClick(card) {
   popupConfirm.handleCard(card);
   popupConfirm.openPopup();
 }
@@ -157,7 +145,10 @@ const popupEdit = new PopupWithForm('.popup_edit', {
             .catch((err) => {
               console.log(err)
             })
-          
+            .finally(() => {
+              popupEdit.setLoadingText('Сохранить');
+              popupEdit.closePopup()
+            })
         }});
 
         buttonEditOpen.addEventListener('click', () => {
@@ -183,6 +174,10 @@ const popupAvatar = new PopupWithForm('.popup_avatar', {
       .catch((err) => {
         console.log(err)
       })
+      .finally(() => {
+        popupAvatar.setLoadingText('Сохранить');
+        popupAvatar.closePopup()
+      })
   }
 })
 popupAvatar.setEventListeners()
@@ -190,8 +185,6 @@ popupAvatar.setEventListeners()
 document.querySelector('.profile__avatar').addEventListener('click', () => {
   popupAvatar.openPopup();
 })
-
-
 
 popupImage.setEventListeners();
 
