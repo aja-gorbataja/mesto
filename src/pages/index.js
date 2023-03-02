@@ -60,14 +60,14 @@ const popupAdd = new PopupWithForm('.popup_add', {
     popupAdd.setLoadingText('Сохранение...');
     api.createCard(data)
       .then((data) => {
-        addCard(data)
+        addCard(data);
+        popupAdd.closePopup();
       })
       .catch((err) => {
         console.log(err)
       })
       .finally(() => {
         popupAdd.setLoadingText('Создать');
-        popupAdd.closePopup();
       })
   }
 });
@@ -115,13 +115,13 @@ const popupConfirm = new PopupWithConfirm('.popup_ask', {
     api.deleteCard(card._cardId)
       .then(() => {
         card.handleTrash();
+        popupConfirm.closePopup()
       })
       .catch((err) => {
         console.log(err)
       })
       .finally(() => {
         popupConfirm.setLoadingText('Да');
-        popupConfirm.closePopup()
       })
   }
 })
@@ -131,7 +131,7 @@ function handleDeleteClick(card) {
   popupConfirm.openPopup();
 }
 
- popupConfirm.setEventListeners();    
+popupConfirm.setEventListeners();    
 
 
 
@@ -141,27 +141,30 @@ const popupEdit = new PopupWithForm('.popup_edit', {
           api.editProfile(data)
             .then((data) => {
               userEdit.setUserInfo(data, {name: inputName, about: inputAbout});
+              popupEdit.closePopup()
             })
             .catch((err) => {
               console.log(err)
             })
             .finally(() => {
               popupEdit.setLoadingText('Сохранить');
-              popupEdit.closePopup()
             })
-        }});
+        }
+  });
 
-        buttonEditOpen.addEventListener('click', () => {
-          popupEdit.setInputValues(userEdit.getUserInfo());
-          formValidators['form-edit'].deleteErrors();
-          formValidators['form-edit'].disableButton();
-          popupEdit.openPopup();
-        });
+buttonEditOpen.addEventListener('click', () => {
+  popupEdit.setInputValues(userEdit.getUserInfo());
+  formValidators['form-edit'].deleteErrors();
+  formValidators['form-edit'].disableButton();
+  popupEdit.openPopup();
+});
 
-        popupEdit.setEventListeners();
+popupEdit.setEventListeners();
     
 
 const popupImage = new PopupWithImage('.popup_img');
+
+popupImage.setEventListeners();
 
 
 const popupAvatar = new PopupWithForm('.popup_avatar', {
@@ -169,24 +172,23 @@ const popupAvatar = new PopupWithForm('.popup_avatar', {
     popupAvatar.setLoadingText('Сохранение...');
     api.editAvatar(data)
       .then((data) => {
-        userEdit.setUserAvatar(data, {avatar: inputAvatar})
+        userEdit.setUserAvatar(data, {avatar: inputAvatar});
+        popupAvatar.closePopup()
       })
       .catch((err) => {
         console.log(err)
       })
       .finally(() => {
         popupAvatar.setLoadingText('Сохранить');
-        popupAvatar.closePopup()
       })
   }
 })
+
 popupAvatar.setEventListeners()
 
 document.querySelector('.profile__avatar').addEventListener('click', () => {
   popupAvatar.openPopup();
 })
-
-popupImage.setEventListeners();
 
 
 const formValidators = {};

@@ -87,5 +87,6 @@ export default class Card {
 
   handleTrash() {
     this._element.remove();
+    this._element = null;
   }
 }
