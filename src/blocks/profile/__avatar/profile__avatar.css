@@ -1,19 +1,7 @@
 .profile__avatar {
-  padding: 0;
-  margin: 0;
-  background-size: cover;
   border-radius: 50%;
-  max-width: 120px;
-  width: 100%;
+  object-fit: cover;
   height: 120px;
-}
-
-.profile__avatar:hover {
-  background-image: url(../../../images/editbutton.svg);
-  background-color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-  opacity: 0.2;
-  background-size: 26px;
-  background-repeat: no-repeat;
-  background-position: center;
+  width: 120px;
+  margin: 0;
 }

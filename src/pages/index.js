@@ -186,7 +186,7 @@ const popupAvatar = new PopupWithForm('.popup_avatar', {
 
 popupAvatar.setEventListeners()
 
-document.querySelector('.profile__avatar').addEventListener('click', () => {
+document.querySelector('.profile__edit').addEventListener('click', () => {
   popupAvatar.openPopup();
 })
 
